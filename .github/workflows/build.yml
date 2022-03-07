@@ -59,6 +59,8 @@ jobs:
           buider: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/git-action
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cahe-to: type=local,dest-/tmp/.buldx-cache
 
       - name: Verify
         run: echo ${{ steps.docker_build.outputs.digest }}
