@@ -1,0 +1,15 @@
+version: '2'
+services:
+  web:
+    build:
+      context: ./
+      # target: dev
+      dockerfile: Dockerfile
+    volumes:
+      - .:/src
+    # command: npm install && npm run start
+    ports:
+      - "1234:3000"
+    environment:
+      NODE_ENV: development
+      DEBUG: nodejs-docker-express:*
